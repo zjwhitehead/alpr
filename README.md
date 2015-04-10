@@ -1,5 +1,14 @@
 # Alpr
 
+Tiny rubygem wrapping [openALPR](https://github.com/openalpr/openalpr)
+
+## Usage
+
+```ruby
+search = Alpr.new("lc.jpg")
+puts search.output
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
