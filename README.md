@@ -1,4 +1,4 @@
-# Alpr [![Gem](https://img.shields.io/gem/v/alpr.svg?style=plastic)]()
+# Alpr [![Gem](https://img.shields.io/gem/v/alpr.svg?style=plastic)](https://rubygems.org/gems/alpr)
 
 Tiny rubygem wrapping [openALPR](https://github.com/openalpr/openalpr)
 
