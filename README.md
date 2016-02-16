@@ -1,6 +1,8 @@
 # Alpr [![Gem](https://img.shields.io/gem/v/alpr.svg?style=plastic)](https://rubygems.org/gems/alpr)
 
-Tiny rubygem wrapping [openALPR](https://github.com/openalpr/openalpr)
+Tiny rubygem wrapping [openALPR](https://github.com/openalpr/openalpr).
+
+You'll need to install openALPR. I used `brew install openalpr`, on osx.
 
 ## Installation
 
