@@ -1,7 +1,7 @@
 require "alpr/version"
 
 require 'shellwords'
-require 'JSON'
+require 'json'
 
 
 class Alpr
