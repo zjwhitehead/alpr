@@ -2,7 +2,7 @@
 
 Tiny rubygem wrapping [openALPR](https://github.com/openalpr/openalpr).
 
-You'll need to install openALPR. I used `brew install openalpr`, on osx.
+You'll need to install openALPR. I used `brew install homebrew/science/openalpr`, on osx.
 
 ## Installation
 
@@ -26,6 +26,14 @@ Or install it yourself as:
 search = Alpr.new("lc.jpg")
 puts search.output
 ```
+
+For USA license plates
+specify an optional state pattern (eg. Ohio = "oh" )
+```ruby
+search = Alpr.new("lc.jpg", :us, "oh")
+puts search.output
+```
+
 
 ## Contributing
 
