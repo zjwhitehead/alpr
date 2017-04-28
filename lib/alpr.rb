@@ -50,7 +50,7 @@ class Alpr
 
   def patternString
     if @pattern
-      "-p @pattern.downcase"
+      "-p #{@pattern.downcase}"
     else
       ""
     end
