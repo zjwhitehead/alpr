@@ -1,4 +1,5 @@
 # Alpr [![Gem](https://img.shields.io/gem/v/alpr.svg?style=plastic)](https://rubygems.org/gems/alpr)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fzjwhitehead%2Falpr.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fzjwhitehead%2Falpr?ref=badge_shield)
 
 Tiny rubygem wrapping [openALPR](https://github.com/openalpr/openalpr).
 
@@ -42,3 +43,7 @@ puts search.output
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fzjwhitehead%2Falpr.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fzjwhitehead%2Falpr?ref=badge_large)
