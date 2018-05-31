@@ -7,6 +7,6 @@ class TestAlpr < Minitest::Test
 
   def test_that_it_finds_the_license_plate_in_an_image
     out = Alpr.new('test/lp.jpg')
-    assert out.output["results"].first["plate"].to_s == 'EAZ693'
+    assert out.output['results'].first['plate'].to_s == 'EAZ693'
   end
 end

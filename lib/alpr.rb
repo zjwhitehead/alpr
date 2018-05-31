@@ -1,13 +1,12 @@
-require "alpr/version"
+require 'alpr/version'
 
 require 'shellwords'
 require 'json'
 
-
 class Alpr
   attr_reader :region, :max, :glob, :output, :command, :pattern
 
-  def initialize(file, region = :detect, pattern = nil, max = 10, glob = false)
+  def initialize(file, region=:detect, pattern=nil, max=10, glob=false)
     @file = file
     @region = region
     @pattern = pattern
@@ -38,13 +37,13 @@ class Alpr
   def regionString
     case @region
     when :us
-      "-c us"
+      '-c us'
     when :eu
-      "-c eu"
+      '-c eu'
     when :detect
-      "--detect_region"
+      '--detect_region'
     else
-      ""
+      ''
     end
   end
 
@@ -52,7 +51,7 @@ class Alpr
     if @pattern
       "-p #{@pattern.downcase}"
     else
-      ""
+      ''
     end
   end
 end

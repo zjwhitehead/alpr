@@ -1,0 +1,51 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.1
+
+Documentation:
+  # Skips checking to make sure top level modules / classes have a comment.
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  # Skips checking the style of children definitions at classes and modules.
+  #
+  # Basically there are two different styles:
+  #
+  # `nested` - have each child on a separate line
+  #   class Foo
+  #     class Bar
+  #     end
+  #   end
+  #
+  # `compact` - combine definitions as much as possible
+  #   class Foo::Bar
+  #   end
+  #
+  # With it disabled, either or is valid.
+  Enabled: false
+
+Metrics/LineLength:
+  # Commonly used screens these days easily fit more than 80 characters.
+  Max: 120
+
+Metrics/MethodLength:
+  # Too short methods lead to extraction of single-use methods, which can make
+  # the code easier to read (by naming things), but can also clutter the class
+  Max: 20
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  # No space makes the method definition shorter and differentiates
+  # from a regular assignment.
+  EnforcedStyle: no_space
+
+Style/SymbolArray:
+  # We do not need to support Ruby 1.9, so this is good to use.
+  Enabled: true
+
+Style/PercentLiteralDelimiters:
+  # Because percent literals are closer to method calls, use parenthesis.
+  PreferredDelimiters:
+      default: ()
+      '%i': '()'
+      '%w': '()'
