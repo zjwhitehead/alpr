@@ -1,8 +1,10 @@
-# Alpr [![Gem](https://img.shields.io/gem/v/alpr.svg?style=plastic)](https://rubygems.org/gems/alpr)
+# Alpr [![Gem](https://img.shields.io/gem/v/alpr.svg?style=plastic)](https://rubygems.org/gems/alpr) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fzjwhitehead%2Falpr.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fzjwhitehead%2Falpr?ref=badge_shield)
 
 Tiny rubygem wrapping [openALPR](https://github.com/openalpr/openalpr).
 
-You'll need to install openALPR. I used `brew install homebrew/science/openalpr`, on osx.
+You'll need to install openALPR. I used `brew install homebrew/science/openalpr`, on macOS.
+
+For Linux see the [official wiki](https://github.com/openalpr/openalpr/wiki/Compilation-instructions-(Ubuntu-Linux))
 
 ## Installation
 
@@ -37,7 +39,7 @@ puts search.output
 
 ## Contributing
 
-1. Fork it ( https://github.com/amonks/alpr/fork )
+1. Fork it ( https://github.com/zjwhitehead/alpr/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

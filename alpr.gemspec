@@ -6,11 +6,11 @@ require 'alpr/version'
 Gem::Specification.new do |spec|
   spec.name          = 'alpr'
   spec.version       = Alpr::VERSION
-  spec.authors       = ['Andrew Monks']
+  spec.authors       = ['Andrew Monks', 'Zach Whitehead']
   spec.email         = ['a@monks.co']
 
   spec.summary       = 'Ruby wrapper for openalpr'
-  spec.homepage      = 'http://github.com/amonks/alpr'
+  spec.homepage      = 'http://github.com/zjwhitehead/alpr'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
