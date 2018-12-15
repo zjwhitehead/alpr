@@ -2,11 +2,13 @@
 
 Tiny rubygem wrapping [openALPR](https://github.com/openalpr/openalpr).
 
-You'll need to install openALPR. I used `brew install homebrew/science/openalpr`, on macOS.
+You'll need to install openALPR. I used `brew tap brewsci/science && brew install openalpr`, on macOS. 
 
 For Linux see the [official wiki](https://github.com/openalpr/openalpr/wiki/Compilation-instructions-(Ubuntu-Linux))
 
 ## Installation
+
+Requires Ruby version 2.3 or higher
 
 Add this line to your application's Gemfile:
 
