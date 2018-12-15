@@ -74,7 +74,10 @@ jobs:
           command: sudo apt-get update && sudo apt-get install -y openalpr openalpr-daemon openalpr-utils libopenalpr-dev
       - run:
           name: Run tests
-          command: rake test
+          command: bundle exec rake test
+          when: always
+      - store_test_results:
+          path: test/reports
 
 workflows:
   version: 2
