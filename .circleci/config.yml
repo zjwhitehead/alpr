@@ -6,6 +6,10 @@ workspace_root: &workspace_root
 main_container: &main_container
   image: circleci/ruby:2.3.8
 
+attach_workspace: &attach_workspace
+  attach_workspace:
+    at: *workspace_root
+
 restore_repo: &restore_repo
   restore_cache:
     name: Restore repository
