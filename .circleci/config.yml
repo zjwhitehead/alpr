@@ -20,7 +20,7 @@ restore_gems: &restore_gems
   restore_cache:
     name: Restore gems
     keys:
-      - alpr-{{ checksum "Gemfile.lock" }}
+      - alpr-{{ checksum "alpr.gemspec" }}
 
 jobs:
   # Since a workspace can't persist the root of the working directory we are using the caching mechanism to save
@@ -51,7 +51,7 @@ jobs:
                                --jobs=4 \
                                --retry=3
       - save_cache:
-          key: alpr-{{ checksum "Gemfile.lock" }}
+          key: alpr-{{ checksum "alpr.gemspec" }}
           paths:
             - vendor/bundle
       - persist_to_workspace:
