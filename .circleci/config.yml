@@ -70,7 +70,7 @@ jobs:
           name: Set bundler path
           command: bundle --path vendor/bundle
       - run: 
-          name: Install OpenAPLR
+          name: Install OpenALPR
           command: sudo apt-get update && sudo apt-get install -y openalpr openalpr-daemon openalpr-utils libopenalpr-dev
       - run:
           name: Run tests
