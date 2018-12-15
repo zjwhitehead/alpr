@@ -50,10 +50,6 @@ class Alpr
   end
 
   def pattern_string
-    if @pattern
-      "-p #{@pattern.downcase}"
-    else
-      ''
-    end
+    return "-p #{@pattern.downcase}" if @pattern
   end
 end
