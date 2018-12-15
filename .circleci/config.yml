@@ -47,9 +47,9 @@ jobs:
       - run:
           name: Install Bundler dependencies
           command: |
-            bin/bundle install --path=vendor/bundle \
-                               --jobs=4 \
-                               --retry=3
+            bundle install --path=vendor/bundle \
+                           --jobs=4 \
+                           --retry=3
       - save_cache:
           key: alpr-{{ checksum "alpr.gemspec" }}
           paths:
