@@ -48,7 +48,6 @@ jobs:
           name: Install Bundler dependencies
           command: |
             bundle install --path=vendor/bundle \
-                           --jobs=4 \
                            --retry=3
       - save_cache:
           key: alpr-{{ checksum "alpr.gemspec" }}
@@ -71,9 +70,8 @@ jobs:
           name: Set bundler path
           command: bundle --path vendor/bundle
       - run: 
-          name: Install alpr
+          name: Install OpenAPLR
           command: sudo apt-get update && sudo apt-get install -y openalpr openalpr-daemon openalpr-utils libopenalpr-dev
-    
       - run:
           name: Run tests
           command: |
@@ -84,18 +82,9 @@ workflows:
   build-test-deploy:
     jobs:
       - checkout-code:
-          filters:
-            tags:
-              only: /.*/
       - bundle-dependencies:
           requires:
             - checkout-code
-          filters:
-            tags:
-              only: /.*/
       - run-specs:
           requires:
             - bundle-dependencies
-          filters:
-            tags:
-              only: /.*/
