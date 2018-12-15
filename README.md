@@ -8,6 +8,8 @@ For Linux see the [official wiki](https://github.com/openalpr/openalpr/wiki/Comp
 
 ## Installation
 
+Requires Ruby version 2.3 or higher
+
 Add this line to your application's Gemfile:
 
 ```ruby
