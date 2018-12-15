@@ -19,10 +19,10 @@ class Alpr
     begin
       if @glob
         Dir.glob(glob).each do |picture|
-          @output.push JSON.parse(checkFile(picture))
+          @output.push JSON.parse(check_file(picture))
         end
       else
-        @output = JSON.parse(checkFile(file))
+        @output = JSON.parse(check_file(file))
       end
     rescue JSON::ParserError
       @output = nil
@@ -31,12 +31,12 @@ class Alpr
 
   private
 
-  def checkFile(file)
-    @command = "alpr -j -n #{@max} #{regionString} #{patternString} #{Shellwords.shellescape file}"
+  def check_file(file)
+    @command = "alpr -j -n #{@max} #{region_string} #{pattern_string} #{Shellwords.shellescape file}"
     `#{@command}`
   end
 
-  def regionString
+  def region_string
     case @region
     when :us
       '-c us'
@@ -49,7 +49,7 @@ class Alpr
     end
   end
 
-  def patternString
+  def pattern_string
     if @pattern
       "-p #{@pattern.downcase}"
     else
