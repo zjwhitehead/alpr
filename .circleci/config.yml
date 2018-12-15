@@ -1,0 +1,101 @@
+version: 2
+
+workspace_root: &workspace_root
+  ~/alpr
+
+main_container: &main_container
+  image: circleci/ruby:2.3.8
+
+attach_workspace: &attach_workspace
+  attach_workspace:
+    at: *workspace_root
+
+restore_repo: &restore_repo
+  restore_cache:
+    name: Restore repository
+    keys:
+      - repo-{{ .Branch }}-{{ .Revision }}
+
+restore_gems: &restore_gems
+  restore_cache:
+    name: Restore gems
+    keys:
+      - alpr-{{ checksum "alpr.gemspec" }}
+
+jobs:
+  # Since a workspace can't persist the root of the working directory we are using the caching mechanism to save
+  # the repository.
+  checkout-code:
+    working_directory: *workspace_root
+    docker:
+      - *main_container
+    steps:
+      - *restore_repo
+      - checkout
+      - save_cache:
+          key: repo-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - *workspace_root
+
+  bundle-dependencies:
+    working_directory: *workspace_root
+    docker:
+      - *main_container
+    steps:
+      - *restore_repo
+      - *restore_gems
+      - run:
+          name: Install Bundler dependencies
+          command: |
+            bundle install --path=vendor/bundle \
+                           --retry=3
+      - save_cache:
+          key: alpr-{{ checksum "alpr.gemspec" }}
+          paths:
+            - vendor/bundle
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - vendor/bundle
+
+  run-specs:
+    working_directory: *workspace_root
+    docker:
+      - *main_container
+    parallelism: 1
+    steps:
+      - *restore_repo
+      - *attach_workspace
+      - run:
+          name: Set bundler path
+          command: bundle --path vendor/bundle
+      - run: 
+          name: Install OpenALPR
+          command: sudo apt-get update && sudo apt-get install -y openalpr openalpr-daemon openalpr-utils libopenalpr-dev
+      - run:
+          name: Run tests
+          command: bundle exec rake test
+          when: always
+      - store_test_results:
+          path: test/reports
+
+workflows:
+  version: 2
+  build-test-deploy:
+    jobs:
+      - checkout-code:
+          filters:
+            tags:
+              only: /.*/
+      - bundle-dependencies:
+          requires:
+            - checkout-code
+          filters:
+            tags:
+              only: /.*/
+      - run-specs:
+          requires:
+            - bundle-dependencies
+          filters:
+            tags:
+              only: /.*/

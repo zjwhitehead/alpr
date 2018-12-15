@@ -1,4 +1,5 @@
 # Alpr [![Gem](https://img.shields.io/gem/v/alpr.svg?style=plastic)](https://rubygems.org/gems/alpr) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fzjwhitehead%2Falpr.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fzjwhitehead%2Falpr?ref=badge_shield)
+[![CircleCI](https://circleci.com/gh/zjwhitehead/alpr/tree/master.svg?style=svg)](https://circleci.com/gh/zjwhitehead/alpr/tree/master)
 
 Tiny rubygem wrapping [openALPR](https://github.com/openalpr/openalpr).
 
