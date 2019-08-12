@@ -4,7 +4,7 @@ workspace_root: &workspace_root
   ~/alpr
 
 main_container: &main_container
-  image: circleci/ruby:2.3.8
+  image: circleci/ruby:2.4.6
 
 attach_workspace: &attach_workspace
   attach_workspace:
@@ -69,7 +69,7 @@ jobs:
       - run:
           name: Set bundler path
           command: bundle --path vendor/bundle
-      - run: 
+      - run:
           name: Install OpenALPR
           command: sudo apt-get update && sudo apt-get install -y openalpr openalpr-daemon openalpr-utils libopenalpr-dev
       - run:
