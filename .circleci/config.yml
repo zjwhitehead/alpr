@@ -16,7 +16,7 @@ version: 2
         when: always
     - store_test_results:
         path: test/reports
-  working_directory: ~/alpr
+  working_directory: ~/app
 
 jobs:
   test_ruby_2_6:
