@@ -9,7 +9,7 @@ version: 2
         command: bundle --path vendor/bundle
     - run:
         name: Install OpenALPR
-        command: sudo apt-get update && sudo apt-get install -y openalpr openalpr-daemon openalpr-utils libopenalpr-dev
+        command: apt-get update && apt-get install -y openalpr openalpr-daemon openalpr-utils libopenalpr-dev
     - run:
         name: Run tests
         command: bundle exec rake test
