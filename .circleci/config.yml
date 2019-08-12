@@ -6,6 +6,15 @@ workspace_root: &workspace_root
 main_container: &main_container
   image: circleci/ruby:2.3.8
 
+ruby_2_4: &ruby_2_4
+  image: circleci/ruby:2.4.6
+
+ruby_2_5: &ruby_2_5
+  image: circleci/ruby:2.5.5
+
+ruby_2_6: &ruby_2_6
+  image: circleci/ruby:2.6.3
+
 attach_workspace: &attach_workspace
   attach_workspace:
     at: *workspace_root
@@ -41,6 +50,9 @@ jobs:
     working_directory: *workspace_root
     docker:
       - *main_container
+      - *ruby_2_4
+      - *ruby_2_5
+      - *ruby_2_6
     steps:
       - *restore_repo
       - *restore_gems
@@ -62,6 +74,9 @@ jobs:
     working_directory: *workspace_root
     docker:
       - *main_container
+      - *ruby_2_4
+      - *ruby_2_5
+      - *ruby_2_6
     parallelism: 1
     steps:
       - *restore_repo
@@ -69,7 +84,7 @@ jobs:
       - run:
           name: Set bundler path
           command: bundle --path vendor/bundle
-      - run: 
+      - run:
           name: Install OpenALPR
           command: sudo apt-get update && sudo apt-get install -y openalpr openalpr-daemon openalpr-utils libopenalpr-dev
       - run:
